@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TeamsRouteImport } from './routes/teams'
 import { Route as StandingsRouteImport } from './routes/standings'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as PlayoffsRouteImport } from './routes/playoffs'
 import { Route as MatchesRouteImport } from './routes/matches'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -25,6 +26,11 @@ const TeamsRoute = TeamsRouteImport.update({
 const StandingsRoute = StandingsRouteImport.update({
   id: '/standings',
   path: '/standings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PlayoffsRoute = PlayoffsRouteImport.update({
@@ -58,6 +64,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/matches': typeof MatchesRoute
   '/playoffs': typeof PlayoffsRoute
+  '/privacy': typeof PrivacyRoute
   '/standings': typeof StandingsRoute
   '/teams': typeof TeamsRouteWithChildren
   '/teams/$slug': typeof TeamsSlugRoute
@@ -67,6 +74,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/matches': typeof MatchesRoute
   '/playoffs': typeof PlayoffsRoute
+  '/privacy': typeof PrivacyRoute
   '/standings': typeof StandingsRoute
   '/teams': typeof TeamsRouteWithChildren
   '/teams/$slug': typeof TeamsSlugRoute
@@ -77,6 +85,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/matches': typeof MatchesRoute
   '/playoffs': typeof PlayoffsRoute
+  '/privacy': typeof PrivacyRoute
   '/standings': typeof StandingsRoute
   '/teams': typeof TeamsRouteWithChildren
   '/teams/$slug': typeof TeamsSlugRoute
@@ -88,6 +97,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/matches'
     | '/playoffs'
+    | '/privacy'
     | '/standings'
     | '/teams'
     | '/teams/$slug'
@@ -97,6 +107,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/matches'
     | '/playoffs'
+    | '/privacy'
     | '/standings'
     | '/teams'
     | '/teams/$slug'
@@ -106,6 +117,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/matches'
     | '/playoffs'
+    | '/privacy'
     | '/standings'
     | '/teams'
     | '/teams/$slug'
@@ -116,6 +128,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   MatchesRoute: typeof MatchesRoute
   PlayoffsRoute: typeof PlayoffsRoute
+  PrivacyRoute: typeof PrivacyRoute
   StandingsRoute: typeof StandingsRoute
   TeamsRoute: typeof TeamsRouteWithChildren
 }
@@ -134,6 +147,13 @@ declare module '@tanstack/react-router' {
       path: '/standings'
       fullPath: '/standings'
       preLoaderRoute: typeof StandingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/playoffs': {
@@ -189,6 +209,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   MatchesRoute: MatchesRoute,
   PlayoffsRoute: PlayoffsRoute,
+  PrivacyRoute: PrivacyRoute,
   StandingsRoute: StandingsRoute,
   TeamsRoute: TeamsRouteWithChildren,
 }
