@@ -11,9 +11,9 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "ABA — The Future of Asian Basketball" },
-      { name: "description", content: "Live matches, standings, playoffs, and the 12 elite teams of the Asia Basketball Association." },
+      { name: "description", content: "Live matches, standings, playoffs, and the elite teams of the Asia Basketball Association." },
       { property: "og:title", content: "ABA — The Future of Asian Basketball" },
-      { property: "og:description", content: "Live matches, standings, playoffs, and the 12 elite teams of the ABA." },
+      { property: "og:description", content: "Live matches, standings, playoffs, and the elite teams of the Asia Basketball Association." },
     ],
   }),
   component: Home,
