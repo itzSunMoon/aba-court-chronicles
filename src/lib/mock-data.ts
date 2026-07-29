@@ -100,12 +100,13 @@ export type NewsArticle = {
   category: string;
   image: string;
   video?: string;
+  tiktok?: string;
 };
 
 export const news: NewsArticle[] = [
   { id: "n1", title: "GFX Made by CH332Y", date: "2026-07-27", summary: "Insanely good gfx made by CH332Y show support and love to his creations, and dm him for custom gfx", category: "Recap", image: "/gfx-ch332y.jpg" },
   { id: "n2", title: "Practical Basketball coming out on July 30th 3:00 AM GMT+ 8", date: "2026-07-22", summary: "The league is in advanced discussions to add franchises in Kuala Lumpur and Dubai for the 2027 season.", category: "League", image: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?w=800", video: "C2CyFaZ4dOc" },
-  { id: "n3", title: "All-Star Weekend voting opens next month", date: "2026-07-20", summary: "Fans across Asia will get to select the starters for the ABA All-Star Game in Singapore.", category: "Events", image: "https://images.unsplash.com/photo-1519861531473-9200262188bf?w=800" },
+  { id: "n3", title: "ABA (Asia Basketball Association) Tiktok Advertisement", date: "2026-07-20", summary: "Made by Shion and uploaded by pbchino / rafa", category: "Events", image: "https://images.unsplash.com/photo-1519861531473-9200262188bf?w=800", tiktok: "7667589592316448021" },
   { id: "n4", title: "Mavericks' rookie sensation drops 40 in win", date: "2026-07-18", summary: "Manila's first-round pick is redefining rookie expectations across the league.", category: "Players", image: "https://images.unsplash.com/photo-1504450758481-7338eba7524a?w=800" },
   { id: "n5", title: "Playoffs picture heats up as season winds down", date: "2026-07-15", summary: "Just three games separate the 4th and 9th seeds in the East. Every night matters.", category: "Standings", image: "https://images.unsplash.com/photo-1608245449230-4ac19066d2d0?w=800" },
   { id: "n6", title: "Global broadcast deal reaches 40 territories", date: "2026-07-12", summary: "ABA games are now available in more countries than ever before.", category: "Business", image: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800" },

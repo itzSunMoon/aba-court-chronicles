@@ -13,6 +13,14 @@ export function NewsCard({ article }: { article: NewsArticle }) {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           />
+        ) : article.tiktok ? (
+          <iframe
+            src={`https://www.tiktok.com/embed/v2/${article.tiktok}`}
+            title={article.title}
+            className="w-full h-full border-0"
+            allow="autoplay; encrypted-media; picture-in-picture"
+            allowFullScreen
+          />
         ) : (
           <>
             <img
