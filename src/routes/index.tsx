@@ -5,7 +5,7 @@ import { NewsCard } from "@/components/NewsCard";
 import { TeamCard } from "@/components/TeamCard";
 import { TeamLogo } from "@/components/TeamLogo";
 import { matches, news, teams, featuredMatch, sponsors, getTeamById } from "@/lib/mock-data";
-import { ArrowRight, Play, Trophy, Calendar, MapPin } from "lucide-react";
+import { ArrowRight, Play, Trophy, Calendar } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -31,9 +31,10 @@ function Home() {
       <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-gradient-hero -mt-16 pt-16">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1519861531473-9200262188bf?w=1920&q=80"
+            src="/hero-bg.jpg"
             alt=""
-            className="w-full h-full object-cover opacity-30"
+            className="w-full h-full object-cover opacity-40"
+            style={{ objectPosition: "95% center" }}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
@@ -44,14 +45,18 @@ function Home() {
           <div className="max-w-3xl animate-fade-up">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass mb-6 text-xs font-semibold uppercase tracking-widest">
               <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-              2026 Season · Playoff Race
+              STRESS TEST 3 · Playoff Race
             </div>
             <h1 className="text-5xl sm:text-6xl md:text-8xl font-black leading-[0.9] tracking-tight">
-              The Future of <br />
-              <span className="text-gradient">Asian Basketball</span>
+              ABA <br />
+              Asian <br />
+              <span className="text-gradient">Basketball</span> <br />
+              <span style={{ background: "linear-gradient(135deg, #f0d9ff, #d670ff)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>
+                Association
+              </span>
             </h1>
             <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-xl">
-              Experience the best basketball league across Asia. 12 teams. 8 nations. One trophy.
+              Experience the best Robasketball league across Asia. Elite teams. 50 nations. One trophy.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <Link
@@ -71,11 +76,13 @@ function Home() {
             <div className="mt-16 grid grid-cols-3 max-w-md gap-8">
               {[
                 { v: "12", l: "Teams" },
-                { v: "8", l: "Nations" },
-                { v: "240+", l: "Games" },
+                { v: "50", l: "Nations" },
+                { v: "24", l: "Games", note: "(only for ST3)" },
               ].map((s) => (
-                <div key={s.l}>
-                  <div className="text-3xl md:text-4xl font-black text-gradient">{s.v}</div>
+                <div key={s.l} className="whitespace-nowrap">
+                  <div className="text-3xl md:text-4xl font-black text-gradient whitespace-nowrap">
+                    {s.v} {s.note && <span className="text-[11px] font-semibold text-muted-foreground">{s.note}</span>}
+                  </div>
                   <div className="text-[11px] text-muted-foreground uppercase tracking-widest mt-1">{s.l}</div>
                 </div>
               ))}
@@ -103,8 +110,15 @@ function Home() {
               <div className="mt-2 inline-flex items-center gap-2 text-sm text-muted-foreground">
                 <Calendar className="w-3.5 h-3.5" /> {featuredMatch.time}
               </div>
-              <div className="mt-1 inline-flex items-center gap-2 text-sm text-muted-foreground">
-                <MapPin className="w-3.5 h-3.5" /> {featuredMatch.arena}
+              <div className="mt-3 flex justify-center gap-6 text-xs">
+                <div>
+                  <div className="text-muted-foreground uppercase tracking-wider text-[10px]">Captain</div>
+                  <div className="font-semibold">{fmHome.captain}</div>
+                </div>
+                <div>
+                  <div className="text-muted-foreground uppercase tracking-wider text-[10px]">Vice Capt</div>
+                  <div className="font-semibold">{fmHome.viceCaptain}</div>
+                </div>
               </div>
               <Link
                 to="/matches"

@@ -7,6 +7,8 @@ export type Team = {
   abbr: string;
   coach: string;
   arena: string;
+  captain: string;
+  viceCaptain: string;
   color: string;
   color2: string;
   wins: number;
@@ -18,18 +20,18 @@ export type Team = {
 };
 
 export const teams: Team[] = [
-  { id: "1", slug: "tokyo-thunder", name: "Tokyo Thunder", city: "Tokyo", country: "Japan", abbr: "TOK", coach: "Hiroshi Tanaka", arena: "Shibuya Dome", color: "#7B2EFF", color2: "#0D0D0D", wins: 28, losses: 6, pf: 3421, pa: 3010, streak: "W7", conference: "East" },
-  { id: "2", slug: "seoul-serpents", name: "Seoul Serpents", city: "Seoul", country: "South Korea", abbr: "SEO", coach: "Min-jun Park", arena: "Gangnam Arena", color: "#9B4DFF", color2: "#1a0033", wins: 26, losses: 8, pf: 3380, pa: 3100, streak: "W3", conference: "East" },
-  { id: "3", slug: "manila-mavericks", name: "Manila Mavericks", city: "Manila", country: "Philippines", abbr: "MNL", coach: "Jose Cruz", arena: "Pasay Coliseum", color: "#6B1FEF", color2: "#0D0D0D", wins: 24, losses: 10, pf: 3290, pa: 3150, streak: "W2", conference: "East" },
-  { id: "4", slug: "shanghai-sharks", name: "Shanghai Sharks", city: "Shanghai", country: "China", abbr: "SHA", coach: "Wei Chen", arena: "Pudong Center", color: "#8A3FFF", color2: "#0D0D0D", wins: 22, losses: 12, pf: 3210, pa: 3180, streak: "L1", conference: "East" },
-  { id: "5", slug: "taipei-tigers", name: "Taipei Tigers", city: "Taipei", country: "Taiwan", abbr: "TPE", coach: "Lin Wei", arena: "Taipei Arena", color: "#A855F7", color2: "#0D0D0D", wins: 20, losses: 14, pf: 3150, pa: 3170, streak: "W1", conference: "East" },
-  { id: "6", slug: "osaka-orbit", name: "Osaka Orbit", city: "Osaka", country: "Japan", abbr: "OSA", coach: "Kenji Sato", arena: "Namba Hall", color: "#7B2EFF", color2: "#0D0D0D", wins: 17, losses: 17, pf: 3050, pa: 3080, streak: "L2", conference: "East" },
-  { id: "7", slug: "jakarta-jaguars", name: "Jakarta Jaguars", city: "Jakarta", country: "Indonesia", abbr: "JKT", coach: "Budi Santoso", arena: "Senayan Arena", color: "#7B2EFF", color2: "#0D0D0D", wins: 25, losses: 9, pf: 3350, pa: 3120, streak: "W4", conference: "West" },
-  { id: "8", slug: "bangkok-blaze", name: "Bangkok Blaze", city: "Bangkok", country: "Thailand", abbr: "BKK", coach: "Somchai Thongdee", arena: "Rajamangala Court", color: "#8A3FFF", color2: "#0D0D0D", wins: 23, losses: 11, pf: 3280, pa: 3160, streak: "W2", conference: "West" },
-  { id: "9", slug: "singapore-slam", name: "Singapore Slam", city: "Singapore", country: "Singapore", abbr: "SGP", coach: "Wei Ming Lee", arena: "Kallang Stadium", color: "#6B1FEF", color2: "#0D0D0D", wins: 21, losses: 13, pf: 3200, pa: 3170, streak: "L1", conference: "West" },
-  { id: "10", slug: "mumbai-monsoon", name: "Mumbai Monsoon", city: "Mumbai", country: "India", abbr: "MUM", coach: "Rajesh Kumar", arena: "Mumbai Dome", color: "#9B4DFF", color2: "#0D0D0D", wins: 19, losses: 15, pf: 3120, pa: 3180, streak: "W1", conference: "West" },
-  { id: "11", slug: "beijing-phoenix", name: "Beijing Phoenix", city: "Beijing", country: "China", abbr: "BEI", coach: "Zhang Wei", arena: "Wukesong Arena", color: "#A855F7", color2: "#0D0D0D", wins: 15, losses: 19, pf: 3000, pa: 3100, streak: "L3", conference: "West" },
-  { id: "12", slug: "hanoi-hornets", name: "Hanoi Hornets", city: "Hanoi", country: "Vietnam", abbr: "HAN", coach: "Nguyen Van", arena: "My Dinh Arena", color: "#7B2EFF", color2: "#0D0D0D", wins: 12, losses: 22, pf: 2900, pa: 3200, streak: "L4", conference: "West" },
+  { id: "1", slug: "tokyo-thunder", name: "T1", city: "Tokyo", country: "Japan", abbr: "T1", coach: "Hiroshi Tanaka", arena: "Shibuya Dome", captain: "unknown", viceCaptain: "random", color: "#7B2EFF", color2: "#0D0D0D", wins: 0, losses: 0, pf: 0, pa: 0, streak: "-", conference: "East" },
+  { id: "2", slug: "seoul-serpents", name: "T2", city: "Seoul", country: "South Korea", abbr: "T2", coach: "Min-jun Park", arena: "Gangnam Arena", captain: "unknown", viceCaptain: "random", color: "#9B4DFF", color2: "#1a0033", wins: 0, losses: 0, pf: 0, pa: 0, streak: "-", conference: "East" },
+  { id: "3", slug: "manila-mavericks", name: "T3", city: "Manila", country: "Philippines", abbr: "T3", coach: "Jose Cruz", arena: "Pasay Coliseum", captain: "unknown", viceCaptain: "random", color: "#6B1FEF", color2: "#0D0D0D", wins: 0, losses: 0, pf: 0, pa: 0, streak: "-", conference: "East" },
+  { id: "4", slug: "shanghai-sharks", name: "T4", city: "Shanghai", country: "China", abbr: "T4", coach: "Wei Chen", arena: "Pudong Center", captain: "unknown", viceCaptain: "random", color: "#8A3FFF", color2: "#0D0D0D", wins: 0, losses: 0, pf: 0, pa: 0, streak: "-", conference: "East" },
+  { id: "5", slug: "taipei-tigers", name: "T5", city: "Taipei", country: "Taiwan", abbr: "T5", coach: "Lin Wei", arena: "Taipei Arena", captain: "unknown", viceCaptain: "random", color: "#A855F7", color2: "#0D0D0D", wins: 0, losses: 0, pf: 0, pa: 0, streak: "-", conference: "East" },
+  { id: "6", slug: "osaka-orbit", name: "T6", city: "Osaka", country: "Japan", abbr: "T6", coach: "Kenji Sato", arena: "Namba Hall", captain: "unknown", viceCaptain: "random", color: "#7B2EFF", color2: "#0D0D0D", wins: 0, losses: 0, pf: 0, pa: 0, streak: "-", conference: "East" },
+  { id: "7", slug: "jakarta-jaguars", name: "T7", city: "Jakarta", country: "Indonesia", abbr: "T7", coach: "Budi Santoso", arena: "Senayan Arena", captain: "unknown", viceCaptain: "random", color: "#7B2EFF", color2: "#0D0D0D", wins: 0, losses: 0, pf: 0, pa: 0, streak: "-", conference: "West" },
+  { id: "8", slug: "bangkok-blaze", name: "T8", city: "Bangkok", country: "Thailand", abbr: "T8", coach: "Somchai Thongdee", arena: "Rajamangala Court", captain: "unknown", viceCaptain: "random", color: "#8A3FFF", color2: "#0D0D0D", wins: 0, losses: 0, pf: 0, pa: 0, streak: "-", conference: "West" },
+  { id: "9", slug: "singapore-slam", name: "T9", city: "Singapore", country: "Singapore", abbr: "T9", coach: "Wei Ming Lee", arena: "Kallang Stadium", captain: "unknown", viceCaptain: "random", color: "#6B1FEF", color2: "#0D0D0D", wins: 0, losses: 0, pf: 0, pa: 0, streak: "-", conference: "West" },
+  { id: "10", slug: "mumbai-monsoon", name: "T10", city: "Mumbai", country: "India", abbr: "T10", coach: "Rajesh Kumar", arena: "Mumbai Dome", captain: "unknown", viceCaptain: "random", color: "#9B4DFF", color2: "#0D0D0D", wins: 0, losses: 0, pf: 0, pa: 0, streak: "-", conference: "West" },
+  { id: "11", slug: "beijing-phoenix", name: "T11", city: "Beijing", country: "China", abbr: "T11", coach: "Zhang Wei", arena: "Wukesong Arena", captain: "unknown", viceCaptain: "random", color: "#A855F7", color2: "#0D0D0D", wins: 0, losses: 0, pf: 0, pa: 0, streak: "-", conference: "West" },
+  { id: "12", slug: "hanoi-hornets", name: "T12", city: "Hanoi", country: "Vietnam", abbr: "T12", coach: "Nguyen Van", arena: "My Dinh Arena", captain: "unknown", viceCaptain: "random", color: "#7B2EFF", color2: "#0D0D0D", wins: 0, losses: 0, pf: 0, pa: 0, streak: "-", conference: "West" },
 ];
 
 export const getTeam = (slug: string) => teams.find((t) => t.slug === slug);
@@ -60,7 +62,7 @@ function makeMatches(): Match[] {
       id: `m${i}`, homeId: h.id, awayId: a.id,
       date: d.toISOString().slice(0, 10), time: "19:30", arena: h.arena,
       status: "final",
-      homeScore: 85 + ((i * 7) % 30), awayScore: 80 + ((i * 11) % 30),
+      homeScore: 0, awayScore: 0,
     });
   }
   // 2 live
@@ -97,11 +99,12 @@ export type NewsArticle = {
   summary: string;
   category: string;
   image: string;
+  video?: string;
 };
 
 export const news: NewsArticle[] = [
-  { id: "n1", title: "Tokyo Thunder extend win streak to 7 games", date: "2026-07-25", summary: "The reigning champions continue their dominant run with a statement road win against Shanghai.", category: "Recap", image: "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=800" },
-  { id: "n2", title: "ABA announces expansion talks with two new cities", date: "2026-07-22", summary: "The league is in advanced discussions to add franchises in Kuala Lumpur and Dubai for the 2027 season.", category: "League", image: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?w=800" },
+  { id: "n1", title: "GFX Made by CH332Y", date: "2026-07-27", summary: "Insanely good gfx made by CH332Y show support and love to his creations, and dm him for custom gfx", category: "Recap", image: "/gfx-ch332y.jpg" },
+  { id: "n2", title: "Practical Basketball coming out on July 30th 3:00 AM GMT+ 8", date: "2026-07-22", summary: "The league is in advanced discussions to add franchises in Kuala Lumpur and Dubai for the 2027 season.", category: "League", image: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?w=800", video: "C2CyFaZ4dOc" },
   { id: "n3", title: "All-Star Weekend voting opens next month", date: "2026-07-20", summary: "Fans across Asia will get to select the starters for the ABA All-Star Game in Singapore.", category: "Events", image: "https://images.unsplash.com/photo-1519861531473-9200262188bf?w=800" },
   { id: "n4", title: "Mavericks' rookie sensation drops 40 in win", date: "2026-07-18", summary: "Manila's first-round pick is redefining rookie expectations across the league.", category: "Players", image: "https://images.unsplash.com/photo-1504450758481-7338eba7524a?w=800" },
   { id: "n5", title: "Playoffs picture heats up as season winds down", date: "2026-07-15", summary: "Just three games separate the 4th and 9th seeds in the East. Every night matters.", category: "Standings", image: "https://images.unsplash.com/photo-1608245449230-4ac19066d2d0?w=800" },
@@ -109,7 +112,7 @@ export const news: NewsArticle[] = [
 ];
 
 export const sponsors = [
-  "Nike", "Adidas", "Under Armour", "Wilson", "Spalding", "Gatorade", "Red Bull", "Samsung", "Sony", "Toyota",
+  "TBD", "TBD", "TBD", "TBD", "TBD", "TBD", "TBD", "TBD", "TBD", "TBD",
 ];
 
 export type Player = { number: number; name: string; position: string; height: string; age: number };

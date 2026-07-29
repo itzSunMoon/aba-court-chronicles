@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { getTeamById, type Match } from "@/lib/mock-data";
 import { TeamLogo } from "./TeamLogo";
-import { MapPin } from "lucide-react";
+
 
 export function MatchCard({ match }: { match: Match }) {
   const home = getTeamById(match.homeId);
@@ -56,8 +56,17 @@ export function MatchCard({ match }: { match: Match }) {
         </div>
       </div>
 
-      <div className="mt-4 pt-4 border-t border-white/5 flex items-center justify-between text-[11px] text-muted-foreground">
-        <span className="inline-flex items-center gap-1"><MapPin className="w-3 h-3" /> {match.arena}</span>
+      <div className="mt-4 pt-4 border-t border-white/5 flex items-center justify-between text-[11px]">
+        <div className="flex items-center gap-4">
+          <div>
+            <div className="text-muted-foreground text-[9px] uppercase tracking-wider">Captain</div>
+            <div className="font-medium">{home.captain}</div>
+          </div>
+          <div>
+            <div className="text-muted-foreground text-[9px] uppercase tracking-wider">Vice Capt</div>
+            <div className="font-medium">{home.viceCaptain}</div>
+          </div>
+        </div>
         <Link to="/matches" className="text-primary font-semibold hover:underline">
           {isLive ? "Watch Live" : "Details →"}
         </Link>

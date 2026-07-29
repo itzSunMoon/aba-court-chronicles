@@ -24,12 +24,12 @@ export function TeamCard({ team }: { team: Team }) {
       <div className="relative text-sm text-muted-foreground mt-1">{team.city}, {team.country}</div>
       <div className="relative mt-4 pt-4 border-t border-white/5 grid grid-cols-2 gap-2 text-xs">
         <div>
-          <div className="text-muted-foreground text-[10px] uppercase tracking-wider">Coach</div>
-          <div className="font-medium truncate">{team.coach}</div>
+          <div className="text-muted-foreground text-[10px] uppercase tracking-wider">Captain</div>
+          <div className="font-medium truncate">{team.captain}</div>
         </div>
         <div>
-          <div className="text-muted-foreground text-[10px] uppercase tracking-wider">Arena</div>
-          <div className="font-medium truncate">{team.arena}</div>
+          <div className="text-muted-foreground text-[10px] uppercase tracking-wider">Vice Capt</div>
+          <div className="font-medium truncate">{team.viceCaptain}</div>
         </div>
       </div>
       <div className="relative mt-4 text-xs font-semibold text-primary group-hover:translate-x-1 transition-transform inline-block">

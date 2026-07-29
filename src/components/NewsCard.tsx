@@ -5,14 +5,26 @@ export function NewsCard({ article }: { article: NewsArticle }) {
   return (
     <article className="group glass rounded-2xl overflow-hidden hover:border-primary/40 hover:-translate-y-1 transition-all">
       <div className="aspect-[16/10] overflow-hidden bg-muted relative">
-        <img
-          src={article.image}
-          alt={article.title}
-          loading="lazy"
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-        <span className="absolute top-3 left-3 px-2 py-1 rounded-md bg-primary/90 text-white text-[10px] font-bold uppercase tracking-wider">
+        {article.video ? (
+          <iframe
+            src={`https://www.youtube.com/embed/${article.video}`}
+            title={article.title}
+            className="w-full h-full border-0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        ) : (
+          <>
+            <img
+              src={article.image}
+              alt={article.title}
+              loading="lazy"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
+          </>
+        )}
+        <span className="absolute top-3 left-3 px-2 py-1 rounded-md bg-primary/90 text-white text-[10px] font-bold uppercase tracking-wider pointer-events-none">
           {article.category}
         </span>
       </div>
