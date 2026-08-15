@@ -150,7 +150,7 @@ function Home() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <SectionHeading eyebrow="League news" title="Stories from the court" />
         <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {news.slice(0, 6).map((n) => <NewsCard key={n.id} article={n} />)}
+          {news.slice(0, 3).map((n) => <NewsCard key={n.id} article={n} />)}
         </div>
       </section>
 
