@@ -21,7 +21,6 @@ export function TeamCard({ team }: { team: Team }) {
         </div>
       </div>
       <h3 className="relative text-lg font-bold">{team.name}</h3>
-      <div className="relative text-sm text-muted-foreground mt-1">{team.city}, {team.country}</div>
       <div className="relative mt-4 pt-4 border-t border-white/5 grid grid-cols-2 gap-2 text-xs">
         <div>
           <div className="text-muted-foreground text-[10px] uppercase tracking-wider">Captain</div>
