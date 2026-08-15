@@ -118,16 +118,16 @@ export const sponsors = [
 
 export type Player = { number: number; name: string; position: string; height: string; age: number };
 export const roster: Player[] = [
-  { number: 3, name: "Kenji Yamamoto", position: "PG", height: "6'2\"", age: 27 },
-  { number: 7, name: "Marcus Lin", position: "SG", height: "6'5\"", age: 25 },
-  { number: 11, name: "Ravi Patel", position: "SF", height: "6'7\"", age: 29 },
-  { number: 14, name: "Chen Wei", position: "PF", height: "6'9\"", age: 26 },
-  { number: 21, name: "Andre Cruz", position: "C", height: "7'0\"", age: 28 },
-  { number: 5, name: "Daichi Sato", position: "PG", height: "6'0\"", age: 23 },
-  { number: 9, name: "Hyun-woo Kim", position: "SG", height: "6'4\"", age: 24 },
-  { number: 15, name: "Aditya Rao", position: "SF", height: "6'6\"", age: 22 },
-  { number: 23, name: "Somsak Wong", position: "PF", height: "6'8\"", age: 27 },
-  { number: 32, name: "Tao Zhang", position: "C", height: "6'11\"", age: 30 },
+  { number: 1, name: "Player 1", position: "PG", height: "6'2\"", age: 27 },
+  { number: 2, name: "Player 2", position: "SG", height: "6'5\"", age: 25 },
+  { number: 3, name: "Player 3", position: "SF", height: "6'7\"", age: 29 },
+  { number: 4, name: "Player 4", position: "PF", height: "6'9\"", age: 26 },
+  { number: 5, name: "Player 5", position: "C", height: "7'0\"", age: 28 },
+  { number: 6, name: "Player 6", position: "PG", height: "6'0\"", age: 23 },
+  { number: 7, name: "Player 7", position: "SG", height: "6'4\"", age: 24 },
+  { number: 8, name: "Player 8", position: "SF", height: "6'6\"", age: 22 },
+  { number: 9, name: "Player 9", position: "PF", height: "6'8\"", age: 27 },
+  { number: 10, name: "Player 10", position: "C", height: "6'11\"", age: 30 },
 ];
 
 export type BracketMatch = { team1: string; team2: string; score1: number; score2: number; winner: string; games: string };
