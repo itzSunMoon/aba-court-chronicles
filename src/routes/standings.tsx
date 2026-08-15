@@ -65,7 +65,7 @@ function StandingsPage() {
                           <TeamLogo abbr={t.abbr} color={t.color} size={32} />
                           <div>
                             <div className="font-semibold">{t.name}</div>
-                            <div className="text-[10px] text-muted-foreground">{t.city}</div>
+                            <div className="text-[10px] text-muted-foreground whitespace-pre-wrap">{t.city}</div>
                           </div>
                         </Link>
                       </td>
