@@ -14,7 +14,7 @@ export const Route = createFileRoute("/teams/$slug")({
   head: ({ loaderData }) => ({
     meta: loaderData ? [
       { title: `${loaderData.team.name} — ABA` },
-      { name: "description", content: `${loaderData.team.name} of ${loaderData.team.city}. Roster, schedule, and season stats.` },
+      { name: "description", content: `${loaderData.team.name} team profile. Roster, schedule, and season stats.` },
       { property: "og:title", content: `${loaderData.team.name} — ABA` },
       { property: "og:description", content: `${loaderData.team.name} — ABA team profile.` },
     ] : [{ title: "Team — ABA" }],
@@ -46,7 +46,6 @@ function TeamProfile() {
             <div>
               <div className="text-[11px] uppercase tracking-[0.3em] text-primary font-bold">{team.conference} Conference</div>
               <h1 className="mt-2 text-4xl md:text-6xl font-black tracking-tight">{team.name}</h1>
-              <div className="mt-2 text-muted-foreground">{team.city}, {team.country}</div>
               <div className="mt-6 flex flex-wrap gap-3">
                 <Stat label="Record" value={`${team.wins}-${team.losses}`} />
                 <Stat label="Win %" value={`${winPct}%`} />
@@ -115,11 +114,10 @@ function TeamProfile() {
             <h3 className="text-xs uppercase tracking-widest text-muted-foreground">Head Coach</h3>
             <div className="mt-2 text-xl font-bold">{team.coach}</div>
           </div>
-          <div className="glass rounded-2xl p-6">
-            <h3 className="text-xs uppercase tracking-widest text-muted-foreground flex items-center gap-2"><Building2 className="w-3 h-3" /> Arena</h3>
-            <div className="mt-2 text-xl font-bold">{team.arena}</div>
-            <div className="mt-1 text-sm text-muted-foreground">{team.city}, {team.country}</div>
-          </div>
+            <div className="glass rounded-2xl p-6">
+              <h3 className="text-xs uppercase tracking-widest text-muted-foreground flex items-center gap-2"><Building2 className="w-3 h-3" /> Arena</h3>
+              <div className="mt-2 text-xl font-bold">{team.arena}</div>
+            </div>
           <div className="glass rounded-2xl p-6">
             <h3 className="text-xs uppercase tracking-widest text-muted-foreground">Season Record</h3>
             <div className="mt-3 grid grid-cols-2 gap-3 text-center">

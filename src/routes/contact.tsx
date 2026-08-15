@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { Mail, Phone, Send } from "lucide-react";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -69,14 +69,9 @@ function ContactPage() {
           <aside className="lg:col-span-2 space-y-4">
             <InfoRow icon={Mail} label="Email" value="league@aba-basketball.asia" />
             <InfoRow icon={Phone} label="Phone" value="+65 6812 4400" />
-            <InfoRow icon={MapPin} label="Office" value="88 Marina Boulevard, Singapore 018985" />
-            <div className="glass rounded-2xl overflow-hidden aspect-[4/3]">
-              <iframe
-                src="https://www.openstreetmap.org/export/embed.html?bbox=103.8,1.28,103.87,1.31&layer=mapnik"
-                className="w-full h-full grayscale contrast-125"
-                loading="lazy"
-                title="Office map"
-              />
+            <div className="glass rounded-2xl p-6">
+              <h3 className="text-xs uppercase tracking-widest text-muted-foreground">Response Time</h3>
+              <p className="mt-2 text-sm text-muted-foreground">We typically reply within 1–2 business days.</p>
             </div>
           </aside>
         </div>
