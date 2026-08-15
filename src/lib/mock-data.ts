@@ -116,18 +116,18 @@ export const sponsors = [
   "TBD", "TBD", "TBD", "TBD", "TBD", "TBD", "TBD", "TBD", "TBD", "TBD",
 ];
 
-export type Player = { number: number; name: string; position: string; height: string; age: number };
+export type Player = { number: number; name: string; position: string; rank: string; price: number };
 export const roster: Player[] = [
-  { number: 1, name: "Player 1", position: "PG", height: "6'2\"", age: 27 },
-  { number: 2, name: "Player 2", position: "SG", height: "6'5\"", age: 25 },
-  { number: 3, name: "Player 3", position: "SF", height: "6'7\"", age: 29 },
-  { number: 4, name: "Player 4", position: "PF", height: "6'9\"", age: 26 },
-  { number: 5, name: "Player 5", position: "C", height: "7'0\"", age: 28 },
-  { number: 6, name: "Player 6", position: "PG", height: "6'0\"", age: 23 },
-  { number: 7, name: "Player 7", position: "SG", height: "6'4\"", age: 24 },
-  { number: 8, name: "Player 8", position: "SF", height: "6'6\"", age: 22 },
-  { number: 9, name: "Player 9", position: "PF", height: "6'8\"", age: 27 },
-  { number: 10, name: "Player 10", position: "C", height: "6'11\"", age: 30 },
+  { number: 1, name: "Player 1", position: "PG", rank: "C-", price: 50 },
+  { number: 2, name: "Player 2", position: "SG", rank: "C", price: 70 },
+  { number: 3, name: "Player 3", position: "SF", rank: "C+", price: 90 },
+  { number: 4, name: "Player 4", position: "PF", rank: "B-", price: 110 },
+  { number: 5, name: "Player 5", position: "C", rank: "B", price: 130 },
+  { number: 6, name: "Player 6", position: "PG", rank: "B+", price: 150 },
+  { number: 7, name: "Player 7", position: "SG", rank: "A-", price: 170 },
+  { number: 8, name: "Player 8", position: "SF", rank: "A", price: 190 },
+  { number: 9, name: "Player 9", position: "PF", rank: "A+", price: 210 },
+  { number: 10, name: "Player 10", position: "C", rank: "S+", price: 250 },
 ];
 
 export type BracketMatch = { team1: string; team2: string; score1: number; score2: number; winner: string; games: string };

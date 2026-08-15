@@ -69,8 +69,8 @@ function TeamProfile() {
                     <th className="text-left py-3 px-4">#</th>
                     <th className="text-left py-3 px-4">Player</th>
                     <th className="text-left py-3 px-4">Pos</th>
-                    <th className="text-left py-3 px-4">Height</th>
-                    <th className="text-right py-3 px-4">Age</th>
+                    <th className="text-left py-3 px-4">Rank</th>
+                    <th className="text-right py-3 px-4">Price</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -79,8 +79,8 @@ function TeamProfile() {
                       <td className="py-3 px-4 tabular-nums font-bold text-primary">{p.number}</td>
                       <td className="py-3 px-4 font-semibold">{p.name}</td>
                       <td className="py-3 px-4 text-muted-foreground">{p.position}</td>
-                      <td className="py-3 px-4 text-muted-foreground tabular-nums">{p.height}</td>
-                      <td className="py-3 px-4 text-right tabular-nums text-muted-foreground">{p.age}</td>
+                      <td className="py-3 px-4 text-muted-foreground tabular-nums">{p.rank}</td>
+                      <td className="py-3 px-4 text-right tabular-nums text-muted-foreground">{p.price}</td>
                     </tr>
                   ))}
                 </tbody>
