@@ -111,12 +111,12 @@ function TeamProfile() {
 
         <aside className="space-y-6">
           <div className="glass rounded-2xl p-6">
-            <h3 className="text-xs uppercase tracking-widest text-muted-foreground">Head Coach</h3>
-            <div className="mt-2 text-xl font-bold">{team.coach}</div>
+            <h3 className="text-xs uppercase tracking-widest text-muted-foreground">Captain</h3>
+            <div className="mt-2 text-xl font-bold">{team.captain}</div>
           </div>
             <div className="glass rounded-2xl p-6">
-              <h3 className="text-xs uppercase tracking-widest text-muted-foreground flex items-center gap-2"><Building2 className="w-3 h-3" /> Arena</h3>
-              <div className="mt-2 text-xl font-bold">{team.arena}</div>
+              <h3 className="text-xs uppercase tracking-widest text-muted-foreground flex items-center gap-2"><Building2 className="w-3 h-3" /> Vice Captain</h3>
+              <div className="mt-2 text-xl font-bold">{team.viceCaptain}</div>
             </div>
           <div className="glass rounded-2xl p-6">
             <h3 className="text-xs uppercase tracking-widest text-muted-foreground">Season Record</h3>
@@ -133,18 +133,7 @@ function TeamProfile() {
           </div>
           <div className="glass rounded-2xl p-6">
             <h3 className="text-xs uppercase tracking-widest text-muted-foreground">Gallery</h3>
-            <div className="mt-3 grid grid-cols-2 gap-2">
-              {[0, 1, 2, 3].map((i) => (
-                <div key={i} className="aspect-square rounded-lg overflow-hidden">
-                  <img
-                    src={`https://images.unsplash.com/photo-${["1546519638-68e109498ffc", "1519861531473-9200262188bf", "1504450758481-7338eba7524a", "1608245449230-4ac19066d2d0"][i]}?w=300&q=70`}
-                    alt=""
-                    loading="lazy"
-                    className="w-full h-full object-cover hover:scale-110 transition-transform"
-                  />
-                </div>
-              ))}
-            </div>
+            <div className="mt-3 min-h-[160px]" />
           </div>
         </aside>
       </section>
