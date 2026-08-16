@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Menu, X, Facebook, Instagram, Youtube, Twitter } from "lucide-react";
+import { Menu, X, MessageCircle } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const nav = [
@@ -11,10 +11,7 @@ const nav = [
 ];
 
 const socials = [
-  { icon: Facebook, href: "#", label: "Facebook" },
-  { icon: Instagram, href: "#", label: "Instagram" },
-  { icon: Twitter, href: "#", label: "X" },
-  { icon: Youtube, href: "#", label: "YouTube" },
+  { icon: MessageCircle, href: "https://discord.gg/gECqspjwzp", label: "Discord" },
 ];
 
 export function Navbar() {
