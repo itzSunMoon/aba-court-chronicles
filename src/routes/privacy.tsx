@@ -14,13 +14,13 @@ export const Route = createFileRoute("/privacy")({
   component: PrivacyPage,
 });
 
-const sections = [
+const sections: { title: string; body: React.ReactNode }[] = [
   { title: "Information Collection", body: "The ABA collects information you provide directly (account details, contact form entries) and information gathered automatically as you use our sites, apps, and services (device, browser, and usage data)." },
   { title: "Cookies", body: "We use first-party and third-party cookies to remember preferences, measure audience, and improve the fan experience. You can control cookies through your browser settings at any time." },
   { title: "Data Usage", body: "Your data helps us operate the league's digital properties, personalize content, deliver relevant communications, and analyze performance. We do not sell personal information." },
   { title: "Third-party Services", body: "We work with trusted analytics, hosting, and communication providers under strict data-processing agreements. Broadcast partners may access aggregate viewership data." },
   { title: "Security", body: "We apply industry-standard technical and organizational safeguards, including encryption in transit, access controls, and continuous monitoring." },
-  { title: "Contact Information", body: "Questions about this policy? Reach us at privacy@aba-basketball.asia." },
+  { title: "Contact Information", body: <>Contact and reach out to us in the <a href="https://discord.gg/gECqspjwzp" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">ABA Discord Server</a></> },
 ];
 
 function PrivacyPage() {
