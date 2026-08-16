@@ -77,7 +77,7 @@ function Home() {
               {[
                 { v: "12", l: "Teams" },
                 { v: "50", l: "Nations" },
-                { v: "24", l: "Games", note: "(only for ST3)" },
+                { v: "24", l: "Games" },
               ].map((s) => (
                 <div key={s.l} className="whitespace-nowrap">
                   <div className="text-3xl md:text-4xl font-black text-gradient whitespace-nowrap">

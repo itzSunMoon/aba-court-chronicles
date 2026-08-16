@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 
 export function Footer() {
   return (
@@ -35,11 +35,9 @@ export function Footer() {
           <div>
             <h3 className="text-xs font-bold uppercase tracking-widest text-primary mb-4">Social</h3>
             <div className="flex gap-2">
-              {[Facebook, Instagram, Twitter, Youtube].map((Icon, i) => (
-                <a key={i} href="#" className="p-2 rounded-lg glass hover:bg-primary/20 hover:scale-110 transition-all">
-                  <Icon className="w-4 h-4" />
-                </a>
-              ))}
+              <a href="https://discord.gg/gECqspjwzp" target="_blank" rel="noopener noreferrer" aria-label="Discord" className="p-2 rounded-lg glass hover:bg-primary/20 hover:scale-110 transition-all">
+                <MessageCircle className="w-4 h-4" />
+              </a>
             </div>
             <div className="mt-6 text-xs text-muted-foreground leading-relaxed">
               The premier basketball league across Asia.
