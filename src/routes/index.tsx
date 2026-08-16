@@ -4,7 +4,7 @@ import { MatchCard } from "@/components/MatchCard";
 import { NewsCard } from "@/components/NewsCard";
 import { TeamCard } from "@/components/TeamCard";
 import { TeamLogo } from "@/components/TeamLogo";
-import { matches, news, teams, featuredMatch, sponsors, getTeamById } from "@/lib/mock-data";
+import { matches, news, teams, featuredMatch, partners, getTeamById } from "@/lib/mock-data";
 import { ArrowRight, Play, Trophy, Calendar } from "lucide-react";
 
 export const Route = createFileRoute("/")({
