@@ -10,9 +10,9 @@ import { ArrowRight, Play, Trophy, Calendar } from "lucide-react";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "ABA — The Future of Asian Basketball" },
+      { title: "ABA ASIAN BASKETBALL ASSOCIATION" },
       { name: "description", content: "Live matches, standings, playoffs, and the elite teams of the Asia Basketball Association." },
-      { property: "og:title", content: "ABA — The Future of Asian Basketball" },
+      { property: "og:title", content: "ABA ASIAN BASKETBALL ASSOCIATION" },
       { property: "og:description", content: "Live matches, standings, playoffs, and the elite teams of the Asia Basketball Association." },
     ],
   }),

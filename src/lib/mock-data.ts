@@ -112,8 +112,15 @@ export const news: NewsArticle[] = [
   { id: "n6", title: "Global broadcast deal reaches 40 territories", date: "2026-07-12", summary: "ABA games are now available in more countries than ever before.", category: "Business", image: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800" },
 ];
 
-export const sponsors = [
-  "TBD", "TBD", "TBD", "TBD", "TBD", "TBD", "TBD", "TBD", "TBD", "TBD",
+export const partners = [
+  { name: "NBL", url: "https://discord.gg/nbl" },
+  { name: "NVL", url: "https://discord.gg/DbKuk2DMya" },
+  { name: "AVL", url: "https://discord.gg/WxWYDCt9tT" },
+  { name: "CVR: ASIA", url: "https://discord.gg/TyfDzSPhRz" },
+  { name: "EVL", url: "https://discord.gg/8Np7pP9csv" },
+  { name: "RoBox", url: "https://discord.gg/vaHVUzZVyk" },
+  { name: "CBU", url: "https://discord.gg/RNNxVWvxJf" },
+  { name: "La Lega", url: "https://discord.gg/HGYhbtXbVr" },
 ];
 
 export type Player = { number: number; name: string; position: string; rank: string; price: number };
