@@ -48,7 +48,7 @@ function Home() {
               STRESS TEST 3 · Playoff Race
             </div>
             <h1 className="text-5xl sm:text-6xl md:text-8xl font-black leading-[0.9] tracking-tight">
-              ABA <br />
+              <span className="block mb-6 md:mb-8">ABA</span>
               Asian <br />
               <span className="text-gradient">Basketball</span> <br />
               <span style={{ background: "linear-gradient(135deg, #f0d9ff, #d670ff)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>
