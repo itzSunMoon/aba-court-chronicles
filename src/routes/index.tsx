@@ -4,15 +4,15 @@ import { MatchCard } from "@/components/MatchCard";
 import { NewsCard } from "@/components/NewsCard";
 import { TeamCard } from "@/components/TeamCard";
 import { TeamLogo } from "@/components/TeamLogo";
-import { matches, news, teams, featuredMatch, sponsors, getTeamById } from "@/lib/mock-data";
+import { matches, news, teams, featuredMatch, partners, getTeamById } from "@/lib/mock-data";
 import { ArrowRight, Play, Trophy, Calendar } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "ABA — The Future of Asian Basketball" },
+      { title: "ABA ASIAN BASKETBALL ASSOCIATION" },
       { name: "description", content: "Live matches, standings, playoffs, and the elite teams of the Asia Basketball Association." },
-      { property: "og:title", content: "ABA — The Future of Asian Basketball" },
+      { property: "og:title", content: "ABA ASIAN BASKETBALL ASSOCIATION" },
       { property: "og:description", content: "Live matches, standings, playoffs, and the elite teams of the Asia Basketball Association." },
     ],
   }),
@@ -160,17 +160,23 @@ function Home() {
         </div>
       </section>
 
-      {/* Sponsors */}
+      {/* Partners */}
       <section className="mt-20 py-12 border-y border-white/5 overflow-hidden">
         <div className="text-center text-[11px] uppercase tracking-[0.3em] text-muted-foreground mb-8">
           Official Partners
         </div>
         <div className="relative">
           <div className="flex gap-16 animate-marquee whitespace-nowrap">
-            {[...sponsors, ...sponsors].map((s, i) => (
-              <div key={i} className="text-2xl font-black text-muted-foreground/60 hover:text-foreground transition-colors">
-                {s}
-              </div>
+            {[...partners, ...partners].map((p, i) => (
+              <a
+                key={i}
+                href={p.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-2xl font-black text-muted-foreground/60 hover:text-foreground transition-colors"
+              >
+                {p.name}
+              </a>
             ))}
           </div>
         </div>
