@@ -80,9 +80,7 @@ function Home() {
                 { v: "24", l: "Games" },
               ].map((s) => (
                 <div key={s.l} className="whitespace-nowrap">
-                  <div className="text-3xl md:text-4xl font-black text-gradient whitespace-nowrap">
-                    {s.v} {s.note && <span className="text-[11px] font-semibold text-muted-foreground">{s.note}</span>}
-                  </div>
+                  <div className="text-3xl md:text-4xl font-black text-gradient whitespace-nowrap">{s.v}</div>
                   <div className="text-[11px] text-muted-foreground uppercase tracking-widest mt-1">{s.l}</div>
                 </div>
               ))}
