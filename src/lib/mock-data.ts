@@ -16,27 +16,26 @@ export type Team = {
   pf: number;
   pa: number;
   streak: string;
-  conference: "East" | "West";
 };
 
 export const teams: Team[] = [
-  { id: "1", slug: "tokyo-thunder", name: "T1", city: "", country: "", abbr: "T1", coach: "Hiroshi Tanaka", arena: "Shibuya Dome", captain: "unknown", viceCaptain: "random", color: "#7B2EFF", color2: "#0D0D0D", wins: 0, losses: 0, pf: 0, pa: 0, streak: "-", conference: "East" },
-  { id: "2", slug: "seoul-serpents", name: "T2", city: "", country: "", abbr: "T2", coach: "Min-jun Park", arena: "Gangnam Arena", captain: "unknown", viceCaptain: "random", color: "#9B4DFF", color2: "#1a0033", wins: 0, losses: 0, pf: 0, pa: 0, streak: "-", conference: "East" },
-  { id: "3", slug: "manila-mavericks", name: "T3", city: "", country: "", abbr: "T3", coach: "Jose Cruz", arena: "Pasay Coliseum", captain: "unknown", viceCaptain: "random", color: "#6B1FEF", color2: "#0D0D0D", wins: 0, losses: 0, pf: 0, pa: 0, streak: "-", conference: "East" },
-  { id: "4", slug: "shanghai-sharks", name: "T4", city: "", country: "", abbr: "T4", coach: "Wei Chen", arena: "Pudong Center", captain: "unknown", viceCaptain: "random", color: "#8A3FFF", color2: "#0D0D0D", wins: 0, losses: 0, pf: 0, pa: 0, streak: "-", conference: "East" },
-  { id: "5", slug: "taipei-tigers", name: "T5", city: "", country: "", abbr: "T5", coach: "Lin Wei", arena: "Taipei Arena", captain: "unknown", viceCaptain: "random", color: "#A855F7", color2: "#0D0D0D", wins: 0, losses: 0, pf: 0, pa: 0, streak: "-", conference: "East" },
-  { id: "6", slug: "osaka-orbit", name: "T6", city: "", country: "", abbr: "T6", coach: "Kenji Sato", arena: "Namba Hall", captain: "unknown", viceCaptain: "random", color: "#7B2EFF", color2: "#0D0D0D", wins: 0, losses: 0, pf: 0, pa: 0, streak: "-", conference: "East" },
-  { id: "7", slug: "jakarta-jaguars", name: "T7", city: "", country: "", abbr: "T7", coach: "Budi Santoso", arena: "Senayan Arena", captain: "unknown", viceCaptain: "random", color: "#7B2EFF", color2: "#0D0D0D", wins: 0, losses: 0, pf: 0, pa: 0, streak: "-", conference: "West" },
-  { id: "8", slug: "bangkok-blaze", name: "T8", city: "", country: "", abbr: "T8", coach: "Somchai Thongdee", arena: "Rajamangala Court", captain: "unknown", viceCaptain: "random", color: "#8A3FFF", color2: "#0D0D0D", wins: 0, losses: 0, pf: 0, pa: 0, streak: "-", conference: "West" },
-  { id: "9", slug: "singapore-slam", name: "T9", city: "", country: "", abbr: "T9", coach: "Wei Ming Lee", arena: "Kallang Stadium", captain: "unknown", viceCaptain: "random", color: "#6B1FEF", color2: "#0D0D0D", wins: 0, losses: 0, pf: 0, pa: 0, streak: "-", conference: "West" },
-  { id: "10", slug: "mumbai-monsoon", name: "T10", city: "", country: "", abbr: "T10", coach: "Rajesh Kumar", arena: "Mumbai Dome", captain: "unknown", viceCaptain: "random", color: "#9B4DFF", color2: "#0D0D0D", wins: 0, losses: 0, pf: 0, pa: 0, streak: "-", conference: "West" },
-  { id: "11", slug: "beijing-phoenix", name: "T11", city: "", country: "", abbr: "T11", coach: "Zhang Wei", arena: "Wukesong Arena", captain: "unknown", viceCaptain: "random", color: "#A855F7", color2: "#0D0D0D", wins: 0, losses: 0, pf: 0, pa: 0, streak: "-", conference: "West" },
-  { id: "12", slug: "hanoi-hornets", name: "T12", city: "", country: "", abbr: "T12", coach: "Nguyen Van", arena: "My Dinh Arena", captain: "unknown", viceCaptain: "random", color: "#7B2EFF", color2: "#0D0D0D", wins: 0, losses: 0, pf: 0, pa: 0, streak: "-", conference: "West" },
+  { id: "1", slug: "tokyo-thunder", name: "T1", city: "", country: "", abbr: "T1", coach: "Hiroshi Tanaka", arena: "Shibuya Dome", captain: "unknown", viceCaptain: "random", color: "#7B2EFF", color2: "#0D0D0D", wins: 0, losses: 0, pf: 0, pa: 0, streak: "-" },
+  { id: "2", slug: "seoul-serpents", name: "T2", city: "", country: "", abbr: "T2", coach: "Min-jun Park", arena: "Gangnam Arena", captain: "unknown", viceCaptain: "random", color: "#9B4DFF", color2: "#1a0033", wins: 0, losses: 0, pf: 0, pa: 0, streak: "-" },
+  { id: "3", slug: "manila-mavericks", name: "T3", city: "", country: "", abbr: "T3", coach: "Jose Cruz", arena: "Pasay Coliseum", captain: "unknown", viceCaptain: "random", color: "#6B1FEF", color2: "#0D0D0D", wins: 0, losses: 0, pf: 0, pa: 0, streak: "-" },
+  { id: "4", slug: "shanghai-sharks", name: "T4", city: "", country: "", abbr: "T4", coach: "Wei Chen", arena: "Pudong Center", captain: "unknown", viceCaptain: "random", color: "#8A3FFF", color2: "#0D0D0D", wins: 0, losses: 0, pf: 0, pa: 0, streak: "-" },
+  { id: "5", slug: "taipei-tigers", name: "T5", city: "", country: "", abbr: "T5", coach: "Lin Wei", arena: "Taipei Arena", captain: "unknown", viceCaptain: "random", color: "#A855F7", color2: "#0D0D0D", wins: 0, losses: 0, pf: 0, pa: 0, streak: "-" },
+  { id: "6", slug: "osaka-orbit", name: "T6", city: "", country: "", abbr: "T6", coach: "Kenji Sato", arena: "Namba Hall", captain: "unknown", viceCaptain: "random", color: "#7B2EFF", color2: "#0D0D0D", wins: 0, losses: 0, pf: 0, pa: 0, streak: "-" },
+  { id: "7", slug: "jakarta-jaguars", name: "T7", city: "", country: "", abbr: "T7", coach: "Budi Santoso", arena: "Senayan Arena", captain: "unknown", viceCaptain: "random", color: "#7B2EFF", color2: "#0D0D0D", wins: 0, losses: 0, pf: 0, pa: 0, streak: "-" },
+  { id: "8", slug: "bangkok-blaze", name: "T8", city: "", country: "", abbr: "T8", coach: "Somchai Thongdee", arena: "Rajamangala Court", captain: "unknown", viceCaptain: "random", color: "#8A3FFF", color2: "#0D0D0D", wins: 0, losses: 0, pf: 0, pa: 0, streak: "-" },
+  { id: "9", slug: "singapore-slam", name: "T9", city: "", country: "", abbr: "T9", coach: "Wei Ming Lee", arena: "Kallang Stadium", captain: "unknown", viceCaptain: "random", color: "#6B1FEF", color2: "#0D0D0D", wins: 0, losses: 0, pf: 0, pa: 0, streak: "-" },
+  { id: "10", slug: "mumbai-monsoon", name: "T10", city: "", country: "", abbr: "T10", coach: "Rajesh Kumar", arena: "Mumbai Dome", captain: "unknown", viceCaptain: "random", color: "#9B4DFF", color2: "#0D0D0D", wins: 0, losses: 0, pf: 0, pa: 0, streak: "-" },
+  { id: "11", slug: "beijing-phoenix", name: "T11", city: "", country: "", abbr: "T11", coach: "Zhang Wei", arena: "Wukesong Arena", captain: "unknown", viceCaptain: "random", color: "#A855F7", color2: "#0D0D0D", wins: 0, losses: 0, pf: 0, pa: 0, streak: "-" },
+  { id: "12", slug: "hanoi-hornets", name: "T12", city: "", country: "", abbr: "T12", coach: "Nguyen Van", arena: "My Dinh Arena", captain: "unknown", viceCaptain: "random", color: "#7B2EFF", color2: "#0D0D0D", wins: 0, losses: 0, pf: 0, pa: 0, streak: "-" },
 ];
 
 export const getTeam = (slug: string) => teams.find((t) => t.slug === slug);
 
-export type ArchivedTeam = { name: string; abbr: string; color: string; wins: number; losses: number; note: string; captain: string; viceCaptain: string; conference: "East" | "West" };
+export type ArchivedTeam = { name: string; abbr: string; color: string; wins: number; losses: number; note: string; captain: string; viceCaptain: string };
 export type PastSeason = { id: string; label: string; description: string; teams: ArchivedTeam[] };
 
 export const pastSeasons: PastSeason[] = [
@@ -53,7 +52,6 @@ export const pastSeasons: PastSeason[] = [
       note: "ST3",
       captain: "unknown",
       viceCaptain: "random",
-      conference: (i < 6 ? "East" : "West") as "East" | "West",
     })),
   },
 ];
