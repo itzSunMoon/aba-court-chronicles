@@ -11,7 +11,7 @@ export const Route = createFileRoute("/teams")({
   head: () => ({
     meta: [
       { title: "Teams — ABA" },
-      { name: "description", content: "Meet the 12 clubs of the Asia Basketball Association across 8 nations." },
+      { name: "description", content: "Meet the 12 clubs of the Asia Basketball Association." },
       { property: "og:title", content: "Teams — ABA" },
       { property: "og:description", content: "Meet the 12 clubs of the Asia Basketball Association." },
     ],
@@ -30,8 +30,6 @@ function TeamsLayout() {
 function TeamsPage() {
   const [tab, setTab] = useState<string>("current");
   const [open, setOpen] = useState(false);
-  const east = teams.filter((t) => t.conference === "East");
-  const west = teams.filter((t) => t.conference === "West");
   const season = pastSeasons.find((s) => s.id === tab);
   const seasonOptions = [
     { id: "current", label: "Season 1", active: true },
@@ -44,34 +42,16 @@ function TeamsPage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-[11px] uppercase tracking-[0.3em] text-primary font-bold">Clubs</div>
         <h1 className="mt-2 text-4xl md:text-6xl font-black tracking-tight">Teams</h1>
-        <p className="mt-3 text-muted-foreground max-w-2xl">12 clubs. 8 nations. One league.</p>
+        <p className="mt-3 text-muted-foreground max-w-2xl">12 clubs. One league.</p>
 
         <div className="mt-8">
           <Popover open={open} onOpenChange={setOpen}>
             <PopoverTrigger className="glass rounded-xl flex items-center gap-3 pr-4 overflow-hidden text-left">
-              <span className="bg-gradient-primary text-primary-foreground font-bold text-sm px-3 py-3">AS</span>
               <span className="font-semibold">{current.label}</span>
               <ChevronUp className={`h-4 w-4 text-muted-foreground transition-transform ${open ? "" : "rotate-180"}`} />
             </PopoverTrigger>
             <PopoverContent align="start" className="w-64 glass border-white/10 p-0">
-              <div className="px-4 pt-4 pb-2 text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-bold">Region</div>
-              <div className="px-4 pb-3 grid grid-cols-4 gap-2">
-                {["AS", "EU", "NA", "SA"].map((r) => (
-                  <div
-                    key={r}
-                    className={`text-center text-xs font-semibold py-2 rounded-md border ${
-                      r === "AS"
-                        ? "bg-gradient-primary text-primary-foreground border-transparent"
-                        : "border-white/10 text-muted-foreground"
-                    }`}
-                  >
-                    {r}
-                  </div>
-                ))}
-              </div>
-              <div className="px-4 pt-2 pb-2 text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-bold border-t border-white/5">
-                Season
-              </div>
+              <div className="px-4 pt-4 pb-2 text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-bold">Season</div>
               <div className="pb-3">
                 {seasonOptions.map((s) => (
                   <button
@@ -98,38 +78,16 @@ function TeamsPage() {
         </div>
 
         {tab === "current" ? (
-          <>
-            <div className="mt-12">
-              <h2 className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-6">Eastern Conference</h2>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {east.map((t) => <TeamCard key={t.id} team={t} />)}
-              </div>
-            </div>
-            <div className="mt-16">
-              <h2 className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-6">Western Conference</h2>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {west.map((t) => <TeamCard key={t.id} team={t} />)}
-              </div>
-            </div>
-          </>
+          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {teams.map((t) => <TeamCard key={t.id} team={t} />)}
+          </div>
         ) : season ? (
           <>
             <p className="mt-8 text-sm text-muted-foreground">{season.description}</p>
-            <div className="mt-8">
-              <h2 className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-6">Eastern Conference</h2>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {season.teams.filter((t) => t.conference === "East").map((t) => (
-                  <ArchivedTeamCard key={t.name} team={t} />
-                ))}
-              </div>
-            </div>
-            <div className="mt-16">
-              <h2 className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-6">Western Conference</h2>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {season.teams.filter((t) => t.conference === "West").map((t) => (
-                  <ArchivedTeamCard key={t.name} team={t} />
-                ))}
-              </div>
+            <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {season.teams.map((t) => (
+                <ArchivedTeamCard key={t.name} team={t} />
+              ))}
             </div>
           </>
         ) : null}
