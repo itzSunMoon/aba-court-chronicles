@@ -44,8 +44,7 @@ function TeamProfile() {
           <div className="flex flex-col md:flex-row items-start md:items-center gap-8">
             <TeamLogo abbr={team.abbr} color={team.color} size={140} className="animate-float" />
             <div>
-              <div className="text-[11px] uppercase tracking-[0.3em] text-primary font-bold">{team.conference} Conference</div>
-              <h1 className="mt-2 text-4xl md:text-6xl font-black tracking-tight">{team.name}</h1>
+              <h1 className="text-4xl md:text-6xl font-black tracking-tight">{team.name}</h1>
               <div className="mt-6 flex flex-wrap gap-3">
                 <Stat label="Record" value={`${team.wins}-${team.losses}`} />
                 <Stat label="Win %" value={`${winPct}%`} />
