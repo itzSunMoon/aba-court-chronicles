@@ -36,7 +36,7 @@ export const teams: Team[] = [
 
 export const getTeam = (slug: string) => teams.find((t) => t.slug === slug);
 
-export type ArchivedTeam = { name: string; abbr: string; color: string; wins: number; losses: number; note: string };
+export type ArchivedTeam = { name: string; abbr: string; color: string; wins: number; losses: number; note: string; captain: string; viceCaptain: string; conference: "East" | "West" };
 export type PastSeason = { id: string; label: string; description: string; teams: ArchivedTeam[] };
 
 export const pastSeasons: PastSeason[] = [
@@ -51,19 +51,9 @@ export const pastSeasons: PastSeason[] = [
       wins: 0,
       losses: 0,
       note: "ST3",
-    })),
-  },
-  {
-    id: "season-1",
-    label: "Season 1",
-    description: "The inaugural ABA season.",
-    teams: Array.from({ length: 8 }, (_, i) => ({
-      name: `S1-${i + 1}`,
-      abbr: `S${i + 1}`,
-      color: ["#7B2EFF", "#9B4DFF", "#6B1FEF", "#8A3FFF"][i % 4],
-      wins: 0,
-      losses: 0,
-      note: "Season 1",
+      captain: "unknown",
+      viceCaptain: "random",
+      conference: (i < 6 ? "East" : "West") as "East" | "West",
     })),
   },
 ];
