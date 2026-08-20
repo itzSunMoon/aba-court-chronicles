@@ -1,4 +1,4 @@
-import { createFileRoute, Outlet, useMatches } from "@tanstack/react-router";
+import { createFileRoute, Outlet, useMatches, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { ChevronUp, Check } from "lucide-react";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
@@ -32,7 +32,7 @@ function TeamsPage() {
   const [open, setOpen] = useState(false);
   const season = pastSeasons.find((s) => s.id === tab);
   const seasonOptions = [
-    { id: "current", label: "Season 1", active: true },
+    { id: "current", label: "SEASON 1", active: true },
     ...pastSeasons.map((s) => ({ id: s.id, label: s.label, active: false })),
   ];
   const current = seasonOptions.find((s) => s.id === tab)!;
@@ -98,13 +98,17 @@ function TeamsPage() {
 
 function ArchivedTeamCard({ team }: { team: ArchivedTeam }) {
   return (
-    <div className="group relative glass rounded-2xl p-6 hover:border-primary/40 hover:-translate-y-1 hover:shadow-glow transition-all overflow-hidden">
+    <Link
+      to="/teams/$slug"
+      params={{ slug: team.slug }}
+      className="group relative glass rounded-2xl p-6 hover:border-primary/40 hover:-translate-y-1 hover:shadow-glow transition-all block overflow-hidden"
+    >
       <div
         className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
         style={{ background: `radial-gradient(circle at top right, ${team.color}30, transparent 60%)` }}
       />
       <div className="relative flex items-start justify-between mb-6">
-        <TeamLogo abbr={team.abbr} color={team.color} size={64} className="group-hover:scale-110 transition-transform" />
+        <TeamLogo abbr={team.abbr} color={team.color} logo={team.logo} size={64} className="group-hover:scale-110 transition-transform" />
         <div className="text-right">
           <div className="text-[10px] uppercase tracking-widest text-muted-foreground">Record</div>
           <div className="font-bold tabular-nums">{team.wins}-{team.losses}</div>
@@ -122,6 +126,9 @@ function ArchivedTeamCard({ team }: { team: ArchivedTeam }) {
           <div className="font-medium truncate">{team.viceCaptain}</div>
         </div>
       </div>
-    </div>
+      <div className="relative mt-4 text-xs font-semibold text-primary group-hover:translate-x-1 transition-transform inline-block">
+        View Team →
+      </div>
+    </Link>
   );
 }

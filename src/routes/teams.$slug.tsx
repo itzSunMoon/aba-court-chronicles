@@ -2,14 +2,23 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { PageShell } from "@/components/layout/PageShell";
 import { TeamLogo } from "@/components/TeamLogo";
 import { MatchCard } from "@/components/MatchCard";
-import { getTeam, matches, roster } from "@/lib/mock-data";
+import { getTeam, getArchivedTeam, matches, roster } from "@/lib/mock-data";
 import { ArrowLeft, Trophy, Users, Building2, TrendingUp } from "lucide-react";
 
 export const Route = createFileRoute("/teams/$slug")({
   loader: ({ params }) => {
     const team = getTeam(params.slug);
-    if (!team) throw notFound();
-    return { team };
+    if (team) return { team: { ...team, logo: undefined as string | undefined } };
+    const archived = getArchivedTeam(params.slug);
+    if (!archived) throw notFound();
+    const a = archived.team;
+    return {
+      team: {
+        id: a.slug, slug: a.slug, name: a.name, abbr: a.abbr, color: a.color, logo: a.logo,
+        captain: a.captain, viceCaptain: a.viceCaptain, wins: a.wins, losses: a.losses,
+        pf: 0, pa: 0, streak: "-",
+      },
+    };
   },
   head: ({ loaderData }) => ({
     meta: loaderData ? [
@@ -42,7 +51,7 @@ function TeamProfile() {
             <ArrowLeft className="w-4 h-4" /> All Teams
           </Link>
           <div className="flex flex-col md:flex-row items-start md:items-center gap-8">
-            <TeamLogo abbr={team.abbr} color={team.color} size={140} className="animate-float" />
+            <TeamLogo abbr={team.abbr} color={team.color} logo={team.logo} size={140} className="animate-float" />
             <div>
               <h1 className="text-4xl md:text-6xl font-black tracking-tight">{team.name}</h1>
               <div className="mt-6 flex flex-wrap gap-3">

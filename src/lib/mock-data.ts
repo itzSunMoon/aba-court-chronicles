@@ -35,17 +35,43 @@ export const teams: Team[] = [
 
 export const getTeam = (slug: string) => teams.find((t) => t.slug === slug);
 
-export type ArchivedTeam = { name: string; abbr: string; color: string; wins: number; losses: number; note: string; captain: string; viceCaptain: string };
+import yara from "@/assets/image.png.asset.json";
+import revelation from "@/assets/image-2.png.asset.json";
+import recoil from "@/assets/RECOILROLE.png.asset.json";
+import saintRene from "@/assets/image-3.png.asset.json";
+import nutella from "@/assets/Nutella.png.asset.json";
+import shuhoku from "@/assets/image-4.png.asset.json";
+import badingBadongs from "@/assets/image-5.png.asset.json";
+import honeyPopcorn from "@/assets/image-6.png.asset.json";
+import clownfish from "@/assets/image-7.png.asset.json";
+import australia from "@/assets/image-8.png.asset.json";
+
+export type ArchivedTeam = { slug: string; name: string; abbr: string; color: string; logo?: string; wins: number; losses: number; note: string; captain: string; viceCaptain: string };
 export type PastSeason = { id: string; label: string; description: string; teams: ArchivedTeam[] };
+
+const st3Named: { name: string; abbr: string; slug: string; logo?: string }[] = [
+  { name: "Yara Yara Phonk Squad", abbr: "YYP", slug: "st3-yara-yara-phonk-squad", logo: yara.url },
+  { name: "Revelation", abbr: "REV", slug: "st3-revelation", logo: revelation.url },
+  { name: "Recoil", abbr: "RCL", slug: "st3-recoil", logo: recoil.url },
+  { name: "Saint RENE", abbr: "SRN", slug: "st3-saint-rene", logo: saintRene.url },
+  { name: "Nutella", abbr: "NUT", slug: "st3-nutella", logo: nutella.url },
+  { name: "Shuhoku", abbr: "SHU", slug: "st3-shuhoku", logo: shuhoku.url },
+  { name: "Bading Badongs", abbr: "BDB", slug: "st3-bading-badongs", logo: badingBadongs.url },
+  { name: "Honey Popcorn", abbr: "HNY", slug: "st3-honey-popcorn", logo: honeyPopcorn.url },
+  { name: "Clownfish", abbr: "CLF", slug: "st3-clownfish", logo: clownfish.url },
+  { name: "WELCOME TO AUSTRALIA ( Draft )", abbr: "WTA", slug: "st3-welcome-to-australia", logo: australia.url },
+  { name: "TBD", abbr: "T11", slug: "st3-team-11" },
+  { name: "TBD", abbr: "T12", slug: "st3-team-12" },
+  { name: "TBD", abbr: "T13", slug: "st3-team-13" },
+];
 
 export const pastSeasons: PastSeason[] = [
   {
     id: "st3",
     label: "ST3",
     description: "Previous season — Stress Test 3 rosters.",
-    teams: Array.from({ length: 12 }, (_, i) => ({
-      name: `T${i + 1}`,
-      abbr: `T${i + 1}`,
+    teams: st3Named.map((t, i) => ({
+      ...t,
       color: ["#7B2EFF", "#9B4DFF", "#6B1FEF", "#8A3FFF", "#A855F7"][i % 5],
       wins: 0,
       losses: 0,
@@ -55,6 +81,14 @@ export const pastSeasons: PastSeason[] = [
     })),
   },
 ];
+
+export const getArchivedTeam = (slug: string) => {
+  for (const s of pastSeasons) {
+    const t = s.teams.find((x) => x.slug === slug);
+    if (t) return { season: s, team: t };
+  }
+  return undefined;
+};
 
 export const getTeamById = (id: string) => teams.find((t) => t.id === id)!;
 
