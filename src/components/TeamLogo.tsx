@@ -1,6 +1,17 @@
-type Props = { abbr: string; color: string; size?: number; className?: string };
+type Props = { abbr: string; color: string; size?: number; className?: string; logo?: string; alt?: string };
 
-export function TeamLogo({ abbr, color, size = 48, className = "" }: Props) {
+export function TeamLogo({ abbr, color, size = 48, className = "", logo, alt }: Props) {
+  if (logo) {
+    return (
+      <img
+        src={logo}
+        alt={alt ?? `${abbr} logo`}
+        loading="lazy"
+        className={`rounded-xl object-cover shrink-0 ${className}`}
+        style={{ width: size, height: size, boxShadow: `0 4px 20px ${color}40`, background: "#0D0D0D" }}
+      />
+    );
+  }
   return (
     <div
       className={`inline-flex items-center justify-center rounded-xl font-bold text-white shrink-0 ${className}`}
