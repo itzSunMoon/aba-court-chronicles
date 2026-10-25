@@ -45,6 +45,9 @@ import badingBadongs from "@/assets/image-5.png.asset.json";
 import honeyPopcorn from "@/assets/image-6.png.asset.json";
 import clownfish from "@/assets/image-7.png.asset.json";
 import australia from "@/assets/image-8.png.asset.json";
+import gom from "@/assets/st3-gom.png.asset.json";
+import beijingDucks from "@/assets/st3-beijing-ducks.png.asset.json";
+import dukeUniversity from "@/assets/st3-duke-university.png.asset.json";
 
 export type ArchivedTeam = { slug: string; name: string; abbr: string; color: string; logo?: string; wins: number; losses: number; note: string; captain: string; viceCaptain: string };
 export type PastSeason = { id: string; label: string; description: string; teams: ArchivedTeam[] };
@@ -60,9 +63,9 @@ const st3Named: { name: string; abbr: string; slug: string; logo?: string }[] = 
   { name: "Honey Popcorn", abbr: "HNY", slug: "st3-honey-popcorn", logo: honeyPopcorn.url },
   { name: "Clownfish", abbr: "CLF", slug: "st3-clownfish", logo: clownfish.url },
   { name: "WELCOME TO AUSTRALIA ( Draft )", abbr: "WTA", slug: "st3-welcome-to-australia", logo: australia.url },
-  { name: "TBD", abbr: "T11", slug: "st3-team-11" },
-  { name: "TBD", abbr: "T12", slug: "st3-team-12" },
-  { name: "TBD", abbr: "T13", slug: "st3-team-13" },
+  { name: "G.O.M", abbr: "GOM", slug: "st3-gom", logo: gom.url },
+  { name: "Beijing Ducks", abbr: "DUCKS", slug: "st3-beijing-ducks", logo: beijingDucks.url },
+  { name: "Duke University", abbr: "DUKE", slug: "st3-duke-university", logo: dukeUniversity.url },
 ];
 
 export const pastSeasons: PastSeason[] = [
