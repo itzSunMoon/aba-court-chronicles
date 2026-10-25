@@ -7,7 +7,7 @@ export function TeamLogo({ abbr, color, size = 48, className = "", logo, alt }: 
         src={logo}
         alt={alt ?? `${abbr} logo`}
         loading="lazy"
-        className={`rounded-xl object-cover shrink-0 ${className}`}
+        className={`rounded-xl object-contain bg-white/[0.03] shrink-0 p-1 ${className}`}
         style={{ width: size, height: size, boxShadow: `0 4px 20px ${color}40`, background: "#0D0D0D" }}
       />
     );
