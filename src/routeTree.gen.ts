@@ -11,11 +11,14 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as LeaderboardRouteImport } from './routes/leaderboard'
 import { Route as MatchesRouteImport } from './routes/matches'
 import { Route as PlayoffsRouteImport } from './routes/playoffs'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as StandingsRouteImport } from './routes/standings'
 import { Route as TeamsRouteImport } from './routes/teams'
+import { Route as ArchiveIndexRouteImport } from './routes/archive.index'
+import { Route as ArchiveSeasonRouteImport } from './routes/archive.$season'
 import { Route as TeamsSlugRouteImport } from './routes/teams.$slug'
 
 const IndexRoute = IndexRouteImport.update({
@@ -26,6 +29,11 @@ const IndexRoute = IndexRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LeaderboardRoute = LeaderboardRouteImport.update({
+  id: '/leaderboard',
+  path: '/leaderboard',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MatchesRoute = MatchesRouteImport.update({
@@ -53,6 +61,16 @@ const TeamsRoute = TeamsRouteImport.update({
   path: '/teams',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ArchiveIndexRoute = ArchiveIndexRouteImport.update({
+  id: '/archive/',
+  path: '/archive/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ArchiveSeasonRoute = ArchiveSeasonRouteImport.update({
+  id: '/archive/$season',
+  path: '/archive/$season',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TeamsSlugRoute = TeamsSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -62,75 +80,96 @@ const TeamsSlugRoute = TeamsSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
+  '/leaderboard': typeof LeaderboardRoute
   '/matches': typeof MatchesRoute
   '/playoffs': typeof PlayoffsRoute
   '/privacy': typeof PrivacyRoute
   '/standings': typeof StandingsRoute
   '/teams': typeof TeamsRouteWithChildren
+  '/archive/$season': typeof ArchiveSeasonRoute
   '/teams/$slug': typeof TeamsSlugRoute
+  '/archive/': typeof ArchiveIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
+  '/leaderboard': typeof LeaderboardRoute
   '/matches': typeof MatchesRoute
   '/playoffs': typeof PlayoffsRoute
   '/privacy': typeof PrivacyRoute
   '/standings': typeof StandingsRoute
   '/teams': typeof TeamsRouteWithChildren
+  '/archive/$season': typeof ArchiveSeasonRoute
   '/teams/$slug': typeof TeamsSlugRoute
+  '/archive': typeof ArchiveIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
+  '/leaderboard': typeof LeaderboardRoute
   '/matches': typeof MatchesRoute
   '/playoffs': typeof PlayoffsRoute
   '/privacy': typeof PrivacyRoute
   '/standings': typeof StandingsRoute
   '/teams': typeof TeamsRouteWithChildren
+  '/archive/$season': typeof ArchiveSeasonRoute
   '/teams/$slug': typeof TeamsSlugRoute
+  '/archive/': typeof ArchiveIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/contact'
+    | '/leaderboard'
     | '/matches'
     | '/playoffs'
     | '/privacy'
     | '/standings'
     | '/teams'
+    | '/archive/$season'
     | '/teams/$slug'
+    | '/archive/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/contact'
+    | '/leaderboard'
     | '/matches'
     | '/playoffs'
     | '/privacy'
     | '/standings'
     | '/teams'
+    | '/archive/$season'
     | '/teams/$slug'
+    | '/archive'
   id:
     | '__root__'
     | '/'
     | '/contact'
+    | '/leaderboard'
     | '/matches'
     | '/playoffs'
     | '/privacy'
     | '/standings'
     | '/teams'
+    | '/archive/$season'
     | '/teams/$slug'
+    | '/archive/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContactRoute: typeof ContactRoute
+  LeaderboardRoute: typeof LeaderboardRoute
   MatchesRoute: typeof MatchesRoute
   PlayoffsRoute: typeof PlayoffsRoute
   PrivacyRoute: typeof PrivacyRoute
   StandingsRoute: typeof StandingsRoute
   TeamsRoute: typeof TeamsRouteWithChildren
+  ArchiveSeasonRoute: typeof ArchiveSeasonRoute
+  ArchiveIndexRoute: typeof ArchiveIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -147,6 +186,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/leaderboard': {
+      id: '/leaderboard'
+      path: '/leaderboard'
+      fullPath: '/leaderboard'
+      preLoaderRoute: typeof LeaderboardRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/matches': {
@@ -184,6 +230,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TeamsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/archive/': {
+      id: '/archive/'
+      path: '/archive'
+      fullPath: '/archive/'
+      preLoaderRoute: typeof ArchiveIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/archive/$season': {
+      id: '/archive/$season'
+      path: '/archive/$season'
+      fullPath: '/archive/$season'
+      preLoaderRoute: typeof ArchiveSeasonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/teams/$slug': {
       id: '/teams/$slug'
       path: '/$slug'
@@ -207,11 +267,14 @@ const TeamsRouteWithChildren = TeamsRoute._addFileChildren(TeamsRouteChildren)
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContactRoute: ContactRoute,
+  LeaderboardRoute: LeaderboardRoute,
   MatchesRoute: MatchesRoute,
   PlayoffsRoute: PlayoffsRoute,
   PrivacyRoute: PrivacyRoute,
   StandingsRoute: StandingsRoute,
   TeamsRoute: TeamsRouteWithChildren,
+  ArchiveSeasonRoute: ArchiveSeasonRoute,
+  ArchiveIndexRoute: ArchiveIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

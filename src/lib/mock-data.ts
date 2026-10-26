@@ -35,37 +35,24 @@ export const teams: Team[] = [
 
 export const getTeam = (slug: string) => teams.find((t) => t.slug === slug);
 
-import yara from "@/assets/image.png.asset.json";
-import revelation from "@/assets/image-2.png.asset.json";
-import recoil from "@/assets/RECOILROLE.png.asset.json";
-import saintRene from "@/assets/image-3.png.asset.json";
-import nutella from "@/assets/Nutella.png.asset.json";
-import shuhoku from "@/assets/image-4.png.asset.json";
-import badingBadongs from "@/assets/image-5.png.asset.json";
-import honeyPopcorn from "@/assets/image-6.png.asset.json";
-import clownfish from "@/assets/image-7.png.asset.json";
-import australia from "@/assets/image-8.png.asset.json";
-import gom from "@/assets/st3-gom.png.asset.json";
-import beijingDucks from "@/assets/st3-beijing-ducks.png.asset.json";
-import dukeUniversity from "@/assets/st3-duke-university.png.asset.json";
 
 export type ArchivedTeam = { slug: string; name: string; abbr: string; color: string; logo?: string; wins: number; losses: number; note: string; captain: string; viceCaptain: string };
 export type PastSeason = { id: string; label: string; description: string; teams: ArchivedTeam[] };
 
 const st3Named: { name: string; abbr: string; slug: string; logo?: string }[] = [
-  { name: "Yara Yara Phonk Squad", abbr: "YYP", slug: "st3-yara-yara-phonk-squad", logo: yara.url },
-  { name: "Revelation", abbr: "REV", slug: "st3-revelation", logo: revelation.url },
-  { name: "Recoil", abbr: "RCL", slug: "st3-recoil", logo: recoil.url },
-  { name: "Saint RENE", abbr: "SRN", slug: "st3-saint-rene", logo: saintRene.url },
-  { name: "Nutella", abbr: "NUT", slug: "st3-nutella", logo: nutella.url },
-  { name: "Shuhoku", abbr: "SHU", slug: "st3-shuhoku", logo: shuhoku.url },
-  { name: "Bading Badongs", abbr: "BDB", slug: "st3-bading-badongs", logo: badingBadongs.url },
-  { name: "Honey Popcorn", abbr: "HNY", slug: "st3-honey-popcorn", logo: honeyPopcorn.url },
-  { name: "Clownfish", abbr: "CLF", slug: "st3-clownfish", logo: clownfish.url },
-  { name: "WELCOME TO AUSTRALIA ( Draft )", abbr: "WTA", slug: "st3-welcome-to-australia", logo: australia.url },
-  { name: "G.O.M", abbr: "GOM", slug: "st3-gom", logo: gom.url },
-  { name: "Beijing Ducks", abbr: "DUCKS", slug: "st3-beijing-ducks", logo: beijingDucks.url },
-  { name: "Duke University", abbr: "DUKE", slug: "st3-duke-university", logo: dukeUniversity.url },
+  { name: "Yara Yara Phonk Squad", abbr: "YYP", slug: "st3-yara-yara-phonk-squad", logo: "/logos/yara-yara-phonk-squad.png" },
+  { name: "Revelation", abbr: "REV", slug: "st3-revelation", logo: "/logos/revelation.png" },
+  { name: "Recoil", abbr: "RCL", slug: "st3-recoil", logo: "/logos/recoil.png" },
+  { name: "Saint RENE", abbr: "SRN", slug: "st3-saint-rene", logo: "/logos/saint-rene.png" },
+  { name: "Nutella", abbr: "NUT", slug: "st3-nutella", logo: "/logos/nutella.png" },
+  { name: "Shuhoku", abbr: "SHU", slug: "st3-shuhoku", logo: "/logos/shuhoku.png" },
+  { name: "Bading Badongs", abbr: "BDB", slug: "st3-bading-badongs", logo: "/logos/bading-badongs.png" },
+  { name: "Honey Popcorn", abbr: "HNY", slug: "st3-honey-popcorn", logo: "/logos/honey-popcorn.png" },
+  { name: "Clownfish", abbr: "CLF", slug: "st3-clownfish", logo: "/logos/clownfish.png" },
+  { name: "WELCOME TO AUSTRALIA ( Draft )", abbr: "WTA", slug: "st3-welcome-to-australia", logo: "/logos/welcome-to-australia.png" },
+  { name: "G.O.M", abbr: "GOM", slug: "st3-gom", logo: "/logos/gom.png" },
+  { name: "Beijing Ducks", abbr: "DUCKS", slug: "st3-beijing-ducks", logo: "/logos/beijing-ducks.png" },
+  { name: "Duke University", abbr: "DUKE", slug: "st3-duke-university", logo: "/logos/duke-university.png" },
 ];
 
 export const pastSeasons: PastSeason[] = [
@@ -211,3 +198,94 @@ export const bracket = {
     { team1: "1", team2: "7", score1: 3, score2: 2, winner: "", games: "3-2 (live)" },
   ],
 } as const;
+// ---- Leaderboard (placeholder players/teams; replace with real data) ----
+export type LbPlayer = {
+  id: number; name: string; pos: string; teamId: string; team: string; gp: number;
+  pts: number; fgm: number; fga: number; tpm: number; tpa: number; ftm: number; fta: number;
+  ast: number; stl: number; bk: number; orb: number; drb: number; reb: number; tov: number; fls: number;
+};
+export const LB_POSITIONS = ["PG", "SG", "SF", "PF", "C"] as const;
+
+function seeded(a: number) {
+  return () => {
+    a |= 0; a = (a + 0x6d2b79f5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+function buildLeaderboard(): LbPlayer[] {
+  const rows: LbPlayer[] = [];
+  for (let i = 0; i < 120; i++) {
+    const r = seeded(i + 1), p = i % 5, pos = LB_POSITIONS[p];
+    const gp = 10 + Math.floor(r() * 13);
+    const fga = Math.round(gp * (6 + r() * 9));
+    const fgm = Math.round(fga * (0.34 + r() * 0.2));
+    const tpa = Math.round(fga * (p === 4 ? 0.05 : 0.2 + r() * 0.25));
+    const tpm = Math.min(fgm, Math.round(tpa * (0.22 + r() * 0.2)));
+    const fta = Math.round(gp * (1.5 + r() * 4));
+    const ftm = Math.round(fta * (0.6 + r() * 0.3));
+    const orb = Math.round(gp * (0.3 + (p + r()) * 0.35));
+    const drb = Math.round(gp * (1 + (p + r()) * 0.7));
+    rows.push({
+      id: i + 1, name: `Player ${i + 1}`, pos, teamId: String((i % 12) + 1), team: `T${(i % 12) + 1}`, gp,
+      pts: 2 * (fgm - tpm) + 3 * tpm + ftm, fgm, fga, tpm, tpa, ftm, fta,
+      ast: Math.round(gp * (4.2 - p * 0.8 + r() * 1.5)), stl: Math.round(gp * (1.6 - p * 0.2 + r() * 0.5)),
+      bk: Math.round(gp * (0.1 + p * 0.35 + r() * 0.4)), orb, drb, reb: orb + drb,
+      tov: Math.round(gp * (1 + r() * 2)), fls: Math.round(gp * (1 + r() * 2)),
+    });
+  }
+  return rows;
+}
+export const leaderboard = buildLeaderboard();
+
+// ---- Archive (league history) ----
+export type ArchiveSeason = { id: string; banner: string; label: string; title: string; champion: string; second: string; third: string };
+export const archive: { code: string; name: string; seasons: ArchiveSeason[] }[] = [
+  {
+    code: "ABA",
+    name: "Asia Basketball Association",
+    seasons: [
+      {
+        id: "st3",
+        banner: "/archive/st3-champion.jpg",
+        label: "ST3",
+        title: "Stress Test 3",
+        champion: "st3-yara-yara-phonk-squad",
+        second: "st3-duke-university",
+        third: "st3-revelation",
+      },
+    ],
+  },
+];
+
+// Placeholder champion roster + awards for the archive season page (replace with real data)
+export const archiveRoster = Array.from({ length: 14 }, (_, i) => ({
+  number: i + 1,
+  name: `Player ${i + 1}`,
+  pos: ["PG", "SG", "SF", "PF", "C"][i % 5],
+}));
+export const archiveAwards: { title: string; player: number }[] = [
+  { title: "Most Valuable Player", player: 0 },
+  { title: "Finals MVP", player: 1 },
+  { title: "Offensive Player of the Season", player: 2 },
+  { title: "Defensive Player of the Season", player: 3 },
+  { title: "Best Playmaker", player: 0 },
+  { title: "Best Point Guard", player: 0 },
+  { title: "Best Shooting Guard", player: 1 },
+  { title: "Best Small Forward", player: 2 },
+  { title: "Best Power Forward", player: 3 },
+  { title: "Best Center", player: 4 },
+];
+
+// ST3 champions roster (Yara Yara Phonk Squad) — Roblox usernames
+export const championRoster: { username: string; id: number; pos: string }[] = [
+  { username: "hofneedle", id: 11371686663, pos: "PG" },
+  { username: "KrisRizzesThePaint", id: 11342458563, pos: "C" },
+  { username: "dudeiforgotme", id: 1391716164, pos: "SF" },
+  { username: "meatbollsensei", id: 1601428976, pos: "PG" },
+  { username: "las_kun", id: 479239973, pos: "PF" },
+  { username: "noobbutnooblolwow", id: 2437960896, pos: "SG" },
+  { username: "Inviolate", id: 52474988, pos: "PF" },
+];

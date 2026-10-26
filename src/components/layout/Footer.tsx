@@ -21,7 +21,9 @@ export function Footer() {
               <li><Link to="/matches" className="hover:text-foreground transition-colors">Matches</Link></li>
               <li><Link to="/standings" className="hover:text-foreground transition-colors">Standings</Link></li>
               <li><Link to="/playoffs" className="hover:text-foreground transition-colors">Playoffs</Link></li>
+              <li><Link to="/leaderboard" className="hover:text-foreground transition-colors">Leaderboard</Link></li>
               <li><Link to="/teams" className="hover:text-foreground transition-colors">Teams</Link></li>
+              <li><Link to="/archive" className="hover:text-foreground transition-colors">Archive</Link></li>
             </ul>
           </div>
           <div>
