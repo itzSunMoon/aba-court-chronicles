@@ -7,7 +7,9 @@ const nav = [
   { to: "/matches", label: "Matches" },
   { to: "/standings", label: "Standings" },
   { to: "/playoffs", label: "Playoffs" },
+  { to: "/leaderboard", label: "Leaderboard" },
   { to: "/teams", label: "Teams" },
+  { to: "/archive", label: "Archive" },
 ];
 
 const socials = [
